@@ -46,4 +46,4 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
-/lib/api/api_manager.dart
+/lib/api/model/api_constants.dart
