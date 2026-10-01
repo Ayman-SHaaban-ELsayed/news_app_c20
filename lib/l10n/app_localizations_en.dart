@@ -37,5 +37,44 @@ class AppLocalizationsEn extends AppLocalizations {
   String get home => 'Home';
 
   @override
+  String get no_news_found => 'No news found';
+
+  @override
   String get try_again => 'Try again';
+
+  @override
+  String get go_to_home => 'Go to home';
+
+  @override
+  String get good_morning => 'Good Morning \nHere Some News For You';
+
+  @override
+  String get general => 'General';
+
+  @override
+  String get business => 'Business';
+
+  @override
+  String get sports => 'Sports';
+
+  @override
+  String get entertainment => 'Entertainment';
+
+  @override
+  String get health => 'Health';
+
+  @override
+  String get technology => 'Technology';
+
+  @override
+  String get science => 'Science';
+
+  @override
+  String get view_alls => 'View All';
+
+  @override
+  String get by => 'By';
+
+  @override
+  String get app_name => 'News App';
 }

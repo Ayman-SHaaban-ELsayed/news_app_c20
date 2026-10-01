@@ -37,5 +37,44 @@ class AppLocalizationsAr extends AppLocalizations {
   String get home => 'الرئيسية';
 
   @override
+  String get no_news_found => 'لا يوجد اخبار';
+
+  @override
   String get try_again => 'حاول مرة أخرى';
+
+  @override
+  String get go_to_home => 'الذهاب الى الرئيسية';
+
+  @override
+  String get good_morning => 'صباح الخير \nهناك بعض الاخبار الجديدة لك';
+
+  @override
+  String get general => 'عام';
+
+  @override
+  String get business => 'اعمال';
+
+  @override
+  String get sports => 'رياضة';
+
+  @override
+  String get entertainment => 'ترفيه';
+
+  @override
+  String get health => 'صحة';
+
+  @override
+  String get technology => 'تكنولوجيا';
+
+  @override
+  String get science => 'علوم';
+
+  @override
+  String get view_alls => 'عرض الكل';
+
+  @override
+  String get by => 'بواسطة';
+
+  @override
+  String get app_name => 'تطبيق الأخبار';
 }
