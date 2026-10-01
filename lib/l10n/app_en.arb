@@ -8,5 +8,18 @@
 "dark_mode":"Dark mode",
 "light_mode":"Light mode",
 "home":"Home",
-"try_again":"Try again"
+"no_news_found":"No news found",
+"try_again":"Try again",
+"go_to_home":"Go to home",
+"good_morning":"Good Morning \nHere Some News For You",
+"general":"General",
+"business":"Business",
+"sports":"Sports",
+"entertainment":"Entertainment",
+"health":"Health",
+"technology":"Technology",
+"science":"Science",
+"view_alls":"View All",
+"by":"By",
+"app_name":"News App"
 }
