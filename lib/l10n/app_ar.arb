@@ -9,5 +9,19 @@
 "light_mode":"الوضع النهارى",
 "dark":"ليلى",
 "home":"الرئيسية",
-"try_again":"حاول مرة أخرى"
+"no_news_found":"لا يوجد اخبار",
+"try_again":"حاول مرة أخرى",
+"go_to_home":"الذهاب الى الرئيسية",
+"good_morning":"صباح الخير \nهناك بعض الاخبار الجديدة لك",
+"general":"عام",
+"business":"اعمال",
+"sports":"رياضة",
+"entertainment":"ترفيه",
+"health":"صحة",
+"technology":"تكنولوجيا",
+"science":"علوم",
+"view_alls":"عرض الكل",
+"by":"بواسطة",
+
+"app_name":"تطبيق الأخبار"
 }
