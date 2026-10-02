@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c20/api/api_manager.dart';
+import 'package:news_app_c20/api/dio/dio_manager.dart';
 import 'package:news_app_c20/api/model/sources/sources.dart';
 import 'package:news_app_c20/l10n/app_localizations.dart';
 import 'package:news_app_c20/ui/home/category_details/news/news_item.dart';
@@ -20,7 +21,8 @@ class _NewsWidgetState extends State<NewsWidget> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: ApiManager.getNewsBySourceId(widget.source.id ?? ''),
+      // future: ApiManager.getNewsBySourceId(widget.source.id ?? ''),
+      future: DioManager.getNewsBySourceId(widget.source.id ?? ''),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           //todo loading
@@ -30,7 +32,8 @@ class _NewsWidgetState extends State<NewsWidget> {
           return MainErrorWidget(
             errorMessage: snapshot.error.toString(),
             onPressed: () {
-              ApiManager.getNewsBySourceId(widget.source.id ?? '');
+              // ApiManager.getNewsBySourceId(widget.source.id ?? '');
+              DioManager.getNewsBySourceId(widget.source.id ?? '');
               setState(() {});
             },
           );
@@ -39,7 +42,8 @@ class _NewsWidgetState extends State<NewsWidget> {
           return MainErrorWidget(
             errorMessage: snapshot.data!.message!,
             onPressed: () {
-              ApiManager.getNewsBySourceId(widget.source.id ?? '');
+              // ApiManager.getNewsBySourceId(widget.source.id ?? '');
+              DioManager.getNewsBySourceId(widget.source.id ?? '');
               setState(() {});
             },
           );
