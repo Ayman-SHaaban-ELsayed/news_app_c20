@@ -1,3 +1,12 @@
+
+link to demo video assignment:
+evently:
+edit
+, delete event
+event details screen
+users shared preferences
+https://drive.google.com/file/d/1P4IwkGHxrYIbF9N4kUswdT9JSzJF4WMm/view?usp=sharing
+
 # news_app_c20
 
 A new Flutter project.
