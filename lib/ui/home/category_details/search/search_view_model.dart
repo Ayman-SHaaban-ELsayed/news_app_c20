@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:news_app_c20/api/api_manager.dart';
 import 'package:news_app_c20/api/model/news/news.dart';
 
-class NewsViewModel extends ChangeNotifier {
+class SearchViewModel extends ChangeNotifier {
   List<News>? newsList;
   String? errorMessage;
   bool isLoading = false;
@@ -10,11 +10,13 @@ class NewsViewModel extends ChangeNotifier {
   bool isFetchingMore = false;
   bool hasMoreData = true;
 
-  void getNewsBySourceID(String sourceId, {bool isLoadMore = false}) async {
-    //todo
-    // هناخدة نسخ من ال
-    // apiManager
-    //او ننادى علية
+  void searchNews(String query, {bool isLoadMore = false}) async {
+    if (query.isEmpty) {
+      newsList = [];
+      notifyListeners();
+      return;
+    }
+
     try {
       if (isLoadMore) {
         if (isFetchingMore || !hasMoreData) return;
@@ -28,28 +30,26 @@ class NewsViewModel extends ChangeNotifier {
         newsList = null;
         notifyListeners();
       }
-      var response = await ApiManager.getNewsBySourceId(
-        sourceId,
+      var response = await ApiManager.searchNews(
+        query,
         page: currentPage,
         pageSize: 7,
       );
-       if (response.status == 'error') {
-        //todo :error =>server
+
+      if (response.status == 'error') {
         errorMessage = response.message!;
       } else {
-        //todo success
-         if (isLoadMore) {
-           if (response.articles != null && response.articles!.isNotEmpty) {
-             newsList!.addAll(response.articles!);
-           } else {
-             hasMoreData = false;
-           }
-         } else {
-           newsList = response.articles;
-         }
-       }
+        if (isLoadMore) {
+          if (response.articles != null && response.articles!.isNotEmpty) {
+            newsList!.addAll(response.articles!);
+          } else {
+            hasMoreData = false;
+          }
+        } else {
+          newsList = response.articles;
+        }
+      }
     } catch (e) {
-      //todo error client side
       errorMessage = e.toString();
       if (isLoadMore) currentPage--;
     }

@@ -5,6 +5,7 @@ import 'package:news_app_c20/api/model/api_constants.dart';
 import 'package:news_app_c20/api/model/api_end_points.dart';
 import 'package:news_app_c20/api/model/news/News_response.dart';
 import 'package:news_app_c20/api/model/sources/source_response.dart';
+
 //الطريقة الاحدث MVVM فى ملف SourceViewModel
 //لاما ننقل المحتوى لاما ننادى عليه
 class ApiManager {
@@ -33,11 +34,39 @@ class ApiManager {
   /*
   GET https://newsapi.org/v2/everything?q=bitcoin&apiKey=key
    */
-  static Future<NewsResponse> getNewsBySourceId(String sourceId) async {
+  static Future<NewsResponse> getNewsBySourceId(
+    String sourceId, {
+    int page = 1,
+    int pageSize = 7,
+  }) async {
     try {
       Uri url = Uri.https(ApiConstants.baseUrl, ApiEndPoints.newsApi, {
         'apiKey': ApiConstants.apiKey,
         'sources': sourceId,
+        'page': page.toString(),
+        'pageSize': pageSize.toString(),
+      });
+      var response = await http.get(url);
+      var responseBody = response.body;
+      var json = jsonDecode(responseBody);
+
+      return NewsResponse.fromJson(json);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  static Future<NewsResponse> searchNews(
+    String query, {
+    int page = 1,
+    int pageSize = 7,
+  }) async {
+    try {
+      Uri url = Uri.https(ApiConstants.baseUrl, ApiEndPoints.newsApi, {
+        'apiKey': ApiConstants.apiKey,
+        'q': query,
+        'page': page.toString(),
+        'pageSize': pageSize.toString(),
       });
       var response = await http.get(url);
       var responseBody = response.body;
