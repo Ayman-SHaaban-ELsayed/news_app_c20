@@ -12,7 +12,8 @@ import 'package:news_app_c20/api/model/api_end_points.dart';
 import 'package:news_app_c20/api/model/news/News_response.dart';
 import 'package:news_app_c20/api/model/sources/source_response.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
+//todo:  الطريقة الاحدث MVVM فى ملف SourceViewModel
+//todo: لاما ننقل المحتوى لاما ننادى عليه
 class DioManager {
   static final Dio dio =
       Dio(
@@ -20,15 +21,16 @@ class DioManager {
             //BaseOptions:
             // لو فيه اكتر من api مشتركين في نفس الحاجة نستخدم BaseOptions
             baseUrl: 'https://newsapi.org',
-           // queryParameters: {'apiKey': ApiConstants.apiKey},///>>todo حالة الاضافة بالباراميترز
+            // queryParameters: {'apiKey': ApiConstants.apiKey},///>>todo حالة الاضافة بالباراميترز
             //اختبارى حسب الحالة اللى بهندلها
             connectTimeout: Duration(seconds: 20),
             receiveTimeout: Duration(seconds: 20),
-        headers: {
-          // todo        انظر بديل ايضا فى @DioManager   ===>  onRequest :options.headers.addAll
+            headers: {
+              // todo        انظر بديل ايضا فى @DioManager   ===>  onRequest :options.headers.addAll
 
-         'X-Api-Key':ApiConstants.apiKey,//todo   حالة الاضافة headers
-        }
+              'X-Api-Key': ApiConstants.apiKey,
+              //todo   حالة الاضافة headers
+            },
           ),
         )
         // ..interceptors.add(LogInterceptor(responseBody: true,requestBody: true));
@@ -123,8 +125,7 @@ class DioManager {
       //   queryParameters: {'apiKey': ApiConstants.apiKey, 'sources': sourceId},
       // );
       return NewsResponse.fromJson(response.data);
-    }
-    on DioException catch (error) {
+    } on DioException catch (error) {
       switch (error.type) {
         case DioExceptionType.connectionTimeout:
         case DioExceptionType.sendTimeout:
