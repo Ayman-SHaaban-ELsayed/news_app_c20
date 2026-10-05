@@ -6,7 +6,7 @@ import 'app_styles.dart';
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     primaryColor: AppColors.whiteColor,
-    splashColor: AppColors.blackColor,
+      splashColor: AppColors.blackColor,
     scaffoldBackgroundColor: AppColors.whiteColor,
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.whiteColor,
@@ -20,6 +20,7 @@ class AppTheme {
       bodyLarge:  AppStyles.bold24White,
       headlineMedium: AppStyles.medium24Black,
       headlineLarge: AppStyles.medium20Black,
+        titleMedium: AppStyles.medium14White
     ),
   );
 
@@ -38,7 +39,8 @@ class AppTheme {
       labelSmall: AppStyles.medium12Gray,
       headlineMedium: AppStyles.medium24White,
       headlineLarge: AppStyles.medium20White,
-      bodyLarge:  AppStyles.bold24Black
+        titleMedium: AppStyles.medium14Black,
+        bodyLarge:  AppStyles.bold24Black
     ),
   );
 }
