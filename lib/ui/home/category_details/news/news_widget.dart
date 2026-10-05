@@ -19,12 +19,25 @@ class NewsWidget extends StatefulWidget {
 
 class _NewsWidgetState extends State<NewsWidget> {
   NewsViewModel viewModel = NewsViewModel();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     // TODO: implement initState
-    viewModel.egtNewsBySourceID(widget.source.id ?? '');
+    viewModel.getNewsBySourceID(widget.source.id ?? '');
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        viewModel.getNewsBySourceID(widget.source.id ?? '', isLoadMore: true);
+      }
+    });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -32,18 +45,20 @@ class _NewsWidgetState extends State<NewsWidget> {
     return ChangeNotifierProvider(
       create: (context) => viewModel,
       child: Consumer<NewsViewModel>(
-        child: Text("Hello",style: Theme.of(context).textTheme.headlineMedium,),
+        child:Container(),// Text("Hello", style: Theme.of(context).textTheme.headlineMedium),
         builder: (context, value, child) {
           //value ==ViewModel
-          if (value.isLoading) {
+          if (value.isLoading&& !value.isFetchingMore) {
             //todo LOading
             return MainLoadingWidget();
-          } else if (value.errorMessage != null) {
+          } else if (value.errorMessage != null && value.newsList == null) {
+
+
             //من ناحية الكلاينت او السيرفر Todo
             return MainErrorWidget(
               errorMessage: value.errorMessage!,
               onPressed: () {
-                viewModel.egtNewsBySourceID(widget.source.id ?? '');
+                viewModel.getNewsBySourceID(widget.source.id ?? '');
               },
             );
           } else if (viewModel.newsList == null) {
@@ -59,8 +74,17 @@ class _NewsWidgetState extends State<NewsWidget> {
                     ),
                   )
                 : ListView.separated(
-                    itemBuilder: (context, index) {
-                      return Column(
+              controller: _scrollController,
+              itemBuilder: (context, index) {
+                if (index == newsList.length) {
+                  return Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(context.height * 0.02),
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+                return Column(
                         children: [
                           child!,
                           NewsItem(news: newsList[index]),
@@ -70,7 +94,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                     separatorBuilder: (context, index) {
                       return SizedBox(height: context.height * 0.02);
                     },
-                    itemCount: 5, // newsList.length,
+              itemCount: newsList.length + (value.isFetchingMore ? 1 : 0), // newsList.length,
                   );
           }
         },

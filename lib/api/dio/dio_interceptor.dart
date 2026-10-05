@@ -44,7 +44,7 @@ class DioInterceptor extends Interceptor {
 
       {
          //انظر ايضا فى @DioManager
-        // 'X-Api-Key':ApiConstants.apiKey,//todo   حالة الاضافة headers
+        'X-Api-Key':ApiConstants.apiKey,//todo   حالة الاضافة headers
 
       }
     );
