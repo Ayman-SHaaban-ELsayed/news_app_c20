@@ -1,3 +1,14 @@
+
+link to demo video assignment:
+evently:
+edit
+, delete event
+event details screen
+users shared preferences
+1- https://drive.google.com/file/d/1P4IwkGHxrYIbF9N4kUswdT9JSzJF4WMm/view?usp=sharing
+2- https://drive.google.com/file/d/1EyYQ0b0kcnYT8bsQwMrC68IgRMlYsrAj/view?usp=sharing
+Shimmer:
+https://pub.dev/packages/shimmer
 # news_app_c20
 
 A new Flutter project.

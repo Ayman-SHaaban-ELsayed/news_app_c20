@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c20/api/model/sources/sources.dart';
+import 'package:news_app_c20/ui/home/category_details/news/cubit/cubit_news_view_model.dart';
 import 'package:news_app_c20/ui/home/category_details/news/news_widget.dart';
 import 'package:news_app_c20/ui/home/category_details/sources/source_name.dart';
 import 'package:news_app_c20/utlis/app_colors.dart';
@@ -15,8 +16,17 @@ class SourceTab extends StatefulWidget {
 }
 
 class _SourceTabState extends State<SourceTab> {
-  int selectedIndex = 0;
+  CubitNewsViewModel cubitNewsViewModel = CubitNewsViewModel();
 
+  int selectedIndex = 0;
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+  //     cubitNewsViewModel.getNewsBySourceId(widget.sourceList[selectedIndex].id!);
+  //   });
+  // }
   @override
   Widget build(BuildContext context) {
     var height = context.height;
@@ -41,7 +51,14 @@ class _SourceTabState extends State<SourceTab> {
               );
             }).toList(),
           ),
-          Expanded(child: NewsWidget(source: widget.sourceList[selectedIndex])),
+          //ayman note: update when tap changes:
+          Expanded(
+            child: NewsWidget(
+              key: ValueKey(widget.sourceList[selectedIndex].id),
+              source: widget.sourceList[selectedIndex],
+            ),
+          ),
+          // Expanded(child: NewsWidget(source: widget.sourceList[selectedIndex])),
         ],
       ),
     );
