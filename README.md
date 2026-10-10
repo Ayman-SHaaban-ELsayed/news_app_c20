@@ -9,6 +9,26 @@ users shared preferences
 2- https://drive.google.com/file/d/1EyYQ0b0kcnYT8bsQwMrC68IgRMlYsrAj/view?usp=sharing
 Shimmer:
 https://pub.dev/packages/shimmer
+
+Dependency injection:
+https://medium.com/@inzuael/solid-dependency-inversion-principle-part-5-f5bec43ab22e
+
+==================================================
+l10n Localization:
+# console:
+# flutter pub add flutter_localizations:"{sdk: flutter}" intl:any
+#flutter gen-l10n
+#  flutter run
+#  flutter pub get
+#####dont forget to add generate below the last flutter title
+#flutter:
+#
+#  # The following line ensures that the Material Icons font is
+#  # included with your application, so that you can use the icons in
+#  # the material Icons class.
+#  uses-material-design: true
+#  generate: true   <<<<<=======
+==================================================
 # news_app_c20
 
 A new Flutter project.

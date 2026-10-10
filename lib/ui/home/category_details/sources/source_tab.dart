@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c20/api/model/sources/sources.dart';
+import 'package:news_app_c20/di/di.dart';
 import 'package:news_app_c20/ui/home/category_details/news/cubit/cubit_news_view_model.dart';
 import 'package:news_app_c20/ui/home/category_details/news/news_widget.dart';
 import 'package:news_app_c20/ui/home/category_details/sources/source_name.dart';
@@ -16,7 +17,7 @@ class SourceTab extends StatefulWidget {
 }
 
 class _SourceTabState extends State<SourceTab> {
-  CubitNewsViewModel cubitNewsViewModel = CubitNewsViewModel();
+  CubitNewsViewModel cubitNewsViewModel = CubitNewsViewModel(newsRepositoryContract: injectNewsRepository());
 
   int selectedIndex = 0;
   // @override

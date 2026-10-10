@@ -3,15 +3,15 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:news_app_c20/api/model/api_constants.dart';
 import 'package:news_app_c20/api/model/api_end_points.dart';
-import 'package:news_app_c20/api/model/news/News_response.dart';
+import 'package:news_app_c20/api/model/news/news_response.dart';
 import 'package:news_app_c20/api/model/sources/source_response.dart';
 
 class ApiManager {
   /*
   https://newsapi.org/v2/top-headlines/sources?apiKey=key
    */
-
-  static Future<SourceResponse> getSources(String categoryId) async {
+//static
+    Future<SourceResponse> getSources(String categoryId) async {
     try {
       Uri url = Uri.https(ApiConstants.baseUrl, ApiEndPoints.sourceApi, {
         'apiKey': ApiConstants.apiKey,
@@ -32,7 +32,8 @@ class ApiManager {
   /*
   GET https://newsapi.org/v2/everything?q=bitcoin&apiKey=key
    */
-  static Future<NewsResponse> getNewsBySourceId(String sourceId) async {
+  // static
+  Future<NewsResponse> getNewsBySourceId(String sourceId) async {
     try{
       Uri url = Uri.https(ApiConstants.baseUrl, ApiEndPoints.newsApi, {
         'apiKey': ApiConstants.apiKey,

@@ -6,10 +6,6 @@ class Category {
   String id, title;
   String imagePath;
 
-  /*
-
-   */
-
   static List<Category> getCategoriesList(bool isDark,BuildContext context) {
     return [
       Category(
