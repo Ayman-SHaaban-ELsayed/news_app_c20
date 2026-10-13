@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_ce_flutter/hive_ce_flutter.dart';
+import 'package:news_app_c20/hive/hive_registrar.g.dart';
 import 'package:news_app_c20/l10n/app_localizations.dart';
 import 'package:news_app_c20/providers/app_language_provider.dart';
 import 'package:news_app_c20/providers/app_theme_provider.dart';
@@ -7,10 +11,21 @@ import 'package:news_app_c20/ui/home/home_screen.dart';
 import 'package:news_app_c20/utlis/app_routes.dart';
 import 'package:news_app_c20/utlis/app_theme.dart';
 import 'package:news_app_c20/utlis/my_bloc_observer.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+import 'package:hive_ce/hive.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // final Directory appDocumentDir = await getDownloadsDirectory();
+  // Hive.init(appDocumentDir.path);
+  await Hive.initFlutter();
+  Hive
+    ..init('.')
+    ..registerAdapters();
+
+
   Bloc.observer = MyBlocObserver();
   runApp(
     MultiProvider(

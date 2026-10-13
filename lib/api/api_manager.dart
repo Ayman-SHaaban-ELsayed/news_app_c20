@@ -7,6 +7,12 @@ import 'package:news_app_c20/api/model/news/news_response.dart';
 import 'package:news_app_c20/api/model/sources/source_response.dart';
 
 class ApiManager {
+  ApiManager._();//private constructor
+  static ApiManager? _instance;
+  static ApiManager getInstance(){
+    _instance??=ApiManager._(); //if _instance null assign ApiManager._() to it.
+    return _instance!;
+  }
   /*
   https://newsapi.org/v2/top-headlines/sources?apiKey=key
    */
