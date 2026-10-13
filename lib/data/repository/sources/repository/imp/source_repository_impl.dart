@@ -1,8 +1,9 @@
 //Note: source repo implementation
+import 'package:injectable/injectable.dart';
 import 'package:news_app_c20/api/model/sources/source_response.dart';
 import 'package:news_app_c20/data/repository/sources/data_source/remote/source_remote_data_source.dart';
 import 'package:news_app_c20/data/repository/sources/repository/source_repository_contract.dart';
-
+@Injectable(as: SourceRepositoryContract)
 class SourceRepositoryImpl implements SourceRepositoryContract {
   SourceRemoteDataSource sourceRemoteDataSource;
 

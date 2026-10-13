@@ -1,12 +1,13 @@
 //Note: news view model:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:news_app_c20/api/api_manager.dart';
 import 'package:news_app_c20/data/repository/news/data_sources/remote/impl/news_remote_data_source_impl.dart';
 import 'package:news_app_c20/data/repository/news/data_sources/remote/news_remote_data_source.dart';
 import 'package:news_app_c20/data/repository/news/repository/impl/news_repository_impl.dart';
 import 'package:news_app_c20/data/repository/news/repository/news_repository_contract.dart';
 import 'package:news_app_c20/ui/home/category_details/news/cubit/cubit_news_states.dart';
-
+@injectable
 class CubitNewsViewModel extends Cubit<CubitNewsStates> {
   late NewsRepositoryContract newsRepositoryContract;
 

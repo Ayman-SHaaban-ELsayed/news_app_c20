@@ -1,9 +1,11 @@
 //Note: source remote data source =>impl
+import 'package:injectable/injectable.dart';
 import 'package:news_app_c20/api/api_manager.dart';
 import 'package:news_app_c20/api/model/sources/source_response.dart';
 import 'package:news_app_c20/data/repository/sources/data_source/remote/source_remote_data_source.dart';
 
 //Note: impl =>http
+@Injectable(as: SourceRemoteDataSource)
 class SourceRemoteDataSourceImpl implements SourceRemoteDataSource {
   ApiManager
   apiManager; //Note: يفضل نقل الكود هنا بس عشان هنستخدمة هناك فحاجة تانية

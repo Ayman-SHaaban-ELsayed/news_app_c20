@@ -1,21 +1,32 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:injectable/injectable.dart';
 import 'package:news_app_c20/api/model/api_constants.dart';
 import 'package:news_app_c20/api/model/api_end_points.dart';
 import 'package:news_app_c20/api/model/news/news_response.dart';
 import 'package:news_app_c20/api/model/sources/source_response.dart';
 
+@singleton
 class ApiManager {
+  //Note : @singleton
+  // : بديلة للسطور دى اللى ف
+  //s7_final1
+  // ApiManager._();//private constructor
+  // static ApiManager? _instance;
+  // static ApiManager getInstance(){
+  //   _instance??=ApiManager._(); //if _instance null assign ApiManager._() to it.
+  //   return _instance!;
+  // }
   /*
   https://newsapi.org/v2/top-headlines/sources?apiKey=key
    */
-//static
-    Future<SourceResponse> getSources(String categoryId) async {
+  //static
+  Future<SourceResponse> getSources(String categoryId) async {
     try {
       Uri url = Uri.https(ApiConstants.baseUrl, ApiEndPoints.sourceApi, {
         'apiKey': ApiConstants.apiKey,
-        'category':categoryId
+        'category': categoryId,
       });
       var response = await http.get(url);
       if (response.statusCode == 401) {}
@@ -34,7 +45,7 @@ class ApiManager {
    */
   // static
   Future<NewsResponse> getNewsBySourceId(String sourceId) async {
-    try{
+    try {
       Uri url = Uri.https(ApiConstants.baseUrl, ApiEndPoints.newsApi, {
         'apiKey': ApiConstants.apiKey,
         'sources': sourceId,
@@ -44,7 +55,7 @@ class ApiManager {
       var json = jsonDecode(responseBody);
 
       return NewsResponse.fromJson(json);
-    }catch(e){
+    } catch (e) {
       rethrow;
     }
   }

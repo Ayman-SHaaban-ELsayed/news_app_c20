@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:news_app_c20/api/api_manager.dart';
 import 'package:news_app_c20/data/repository/sources/data_source/remote/impl/source_remote_data_source_impl.dart';
 import 'package:news_app_c20/data/repository/sources/data_source/remote/source_remote_data_source.dart';
@@ -8,6 +9,7 @@ import 'package:news_app_c20/ui/home/category_details/news/cubit/cubit_news_stat
 import 'package:news_app_c20/ui/home/category_details/sources/cubit/cubit_source_states.dart';
 
 //NOTE: cubit==>  source view model
+@injectable
 class CubitSourceViewModel extends Cubit<CubitSourceStates> {
     SourceRepositoryContract sourceRepositoryContract;
 

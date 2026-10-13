@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app_c20/di/di_inject.dart';
 import 'package:news_app_c20/l10n/app_localizations.dart';
 import 'package:news_app_c20/providers/app_language_provider.dart';
 import 'package:news_app_c20/providers/app_theme_provider.dart';
@@ -12,6 +13,7 @@ import 'package:provider/provider.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
+  configureDependencies();
   runApp(
     MultiProvider(
       providers: [
