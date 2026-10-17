@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c20/api/model/sources/sources.dart';
+import 'package:news_app_c20/api/retrofit/model/source_retrofit.dart';
 
 class SourceName extends StatelessWidget {
-  final Sources source;
+  final SourceRetrofit source;
   final bool isSelected;
 
   const SourceName({super.key, required this.source, required this.isSelected});

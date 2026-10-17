@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app_c20/api/model/news/news.dart';
+import 'package:news_app_c20/api/retrofit/model/news_retrofit.dart';
 import 'package:news_app_c20/ui/widgets/main_loading_widget.dart';
 import 'package:news_app_c20/utlis/size_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -8,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 class NewsDetailsDialog extends StatelessWidget {
-  final News news;
+  final NewsRetrofit news;
 
   const NewsDetailsDialog({super.key, required this.news});
 

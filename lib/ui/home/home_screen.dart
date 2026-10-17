@@ -31,10 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
             child: IconButton(
               onPressed: () {
                 // الانتقال للشاشة المخصصة
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SearchScreen()),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const SearchScreen()),
+                // );
               },
               icon: const Icon(Icons.search, size: 32),
             ),

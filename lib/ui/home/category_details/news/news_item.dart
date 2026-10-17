@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app_c20/api/model/news/news.dart';
+import 'package:news_app_c20/api/retrofit/model/news_retrofit.dart';
 import 'package:news_app_c20/l10n/app_localizations.dart';
 import 'package:news_app_c20/ui/home/category_details/news/widget/news_datails_dialog.dart';
 import 'package:news_app_c20/utlis/app_styles.dart';
@@ -10,7 +10,7 @@ import 'package:news_app_c20/utlis/size_utils.dart';
 class NewsItem extends StatelessWidget {
   const NewsItem({super.key, required this.news});
 
-  final News news;
+  final NewsRetrofit news;
 
   @override
   Widget build(BuildContext context) {

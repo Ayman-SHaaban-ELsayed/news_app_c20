@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c20/api/model/sources/sources.dart';
+import 'package:news_app_c20/api/retrofit/model/source_retrofit.dart';
 import 'package:news_app_c20/ui/home/category_details/news/news_widget.dart';
 import 'package:news_app_c20/ui/home/category_details/sources/source_name.dart';
 import 'package:news_app_c20/utlis/app_colors.dart';
 import 'package:news_app_c20/utlis/size_utils.dart';
 
 class SourceTab extends StatefulWidget {
-  List<Sources> sourceList;
+  List<SourceRetrofit> sourceList;
 
   SourceTab({super.key, required this.sourceList});
 
